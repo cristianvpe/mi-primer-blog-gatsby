@@ -4,25 +4,33 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 
 export const query = graphql`
- query {
-   allFile {
-     nodes {
-       name
-     }
-   }
- }
+query {  
+  allMdx {
+  nodes {
+    frontmatter {
+      title
+      date
+    }
+    excerpt
+  }
+}
+}
 `
 
 const Blog = ({data}) => {
     return (
         <Layout pageTitle="Mi Blog">
-            <h2>Lista de entradas del blog</h2>
+            <h3>Lista de entradas del blog</h3>
             <ul>
      {
-       data.allFile.nodes.map(node => (
-         <li key={node.name}>
-           {node.name}
-         </li>
+       data.allMdx.nodes.map(node => (
+        <div>
+        <p>{node.frontmatter.date}</p>
+        <h2>{node.frontmatter.title}</h2>
+        <p>{node.excerpt}</p>
+        <hr/>
+         
+           </div>
        ))
      }
      </ul>
