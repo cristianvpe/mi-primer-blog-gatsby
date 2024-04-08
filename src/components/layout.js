@@ -31,13 +31,16 @@ const Layout = ({ pageTitle, children }) => {
                     <li className={navLinkItem}><Link className={navLinkText} to='/'>Home</Link></li>
                     <li className={navLinkItem}><Link className={navLinkText} to='/sobremi'>Sobre mí</Link></li>
                     <li className={navLinkItem}><Link className={navLinkText} to='/blog'>Blog</Link></li>
-                    <li className={navLinkItem}><a href='https://github.com/cristianvpe'>Github</a></li>
+                    <li className={navLinkItem}><Link className={navLinkText} to='/donde-estamos'>Dónde estamos</Link></li>
+    
                 </ul>
             </nav>
             <main>
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
-                <footer className='footer'> &copy; cristian {new Date().getFullYear()}</footer>
+                <footer className='footer'> &copy; cristian {new Date().getFullYear()}
+                <p className={navLinkItem}><a href='https://github.com/cristianvpe'>Github</a></p>
+                </footer>
                 {/* {new Date().getFullYear()} Para la fecha actualizada*/}
             </main>
         </div>
